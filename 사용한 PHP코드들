@@ -1,0 +1,151 @@
+
+sem2
+
+<center>
+
+<?php
+
+ 
+
+$conn = mysqli_connect("localhost","root","1234","smartcow");
+
+ 
+
+$query = "select * from space;";
+
+ 
+
+$result = mysqli_query($conn, $query); 
+
+ 
+
+$row = mysqli_fetch_array($result);
+
+ 
+
+?>
+
+<?php
+
+ 
+
+//echo '23.0'.'C';
+
+echo $row['tempsend'].'.C';
+
+ 
+
+ 
+
+ 
+
+ 
+
+ 
+
+?>
+
+</center>
+
+sem3
+
+<center>
+
+	<?php
+
+ 
+
+$conn = mysqli_connect("localhost","root","1234","smartcow");
+
+ 
+
+$query = "select * from space;";
+
+ 
+
+$result = mysqli_query($conn, $query);
+
+ 
+
+$row = mysqli_fetch_array($result);
+
+ 
+
+ 
+
+mysqli_query($web1,"select * from space");
+
+?>
+
+ 
+
+ 
+
+<?php
+
+//echo '90.0'.'%';
+
+echo $row['humidsend'].'%'.' ';
+
+ 
+
+ 
+
+?>
+
+</center>
+
+sem4
+
+
+<body>
+
+	<form name = humidtempp method=post>
+
+<center>
+
+<input type='text' name = 'temp'/> 
+
+
+
+
+<input type='submit'/>
+
+
+
+
+</center>
+
+
+
+
+
+
+
+<?php
+
+
+
+
+$conn = mysqli_connect("localhost","root","1234","smartcow");	
+
+$query = "select * from space;";
+
+$result = mysqli_query($conn, $query);
+
+$tempsend = $_POST["temp"];
+
+$row = mysqli_fetch_array($result);
+
+
+
+
+$query2 = "update space set temp = '{$tempsend}';";
+
+$result2 = mysqli_query($conn, $query2);
+
+?>
+
+</form>
+
+</body>
